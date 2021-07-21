@@ -36,13 +36,12 @@
                     withoutVowels += appendChar;
                 }
             }
-            
-            document.getElementById('result').innerHTML = result;
+            return withoutVowels;
         }
-
+        
         function changeVowel(e) {
             result = withoutVowels(e.target.value,'i');
-            return withoutVowels;
+            document.getElementById('result').innerHTML = result;
         }
         
         // soal 2
