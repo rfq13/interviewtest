@@ -13,10 +13,18 @@
 
     <br>
     <br>
-
+    
     soal 3 <br>
     <input type="text" onkeyup="checkPalindrome(event)">
     <span id="palindromeresult"></span>
+
+    <br>
+    <br>
+
+    soal 1 <br>
+    <input type="text" onkeyup="uangPecahan(event)">
+    <span id="uangPecahanResult"></span>
+
 
     <script>
         // soal 1
@@ -88,11 +96,11 @@
         // soal 4
         var a = [4, 5, 8, 9, 0, 2, 8, 2, 11, 15, 2, 9, 0];
         var unique = a.filter((value, index, self)=> self.indexOf(value) === index);
-        console.log(unique); // ['a', 1, 2, '1']
+        console.log("soal 4",unique); // ['a', 1, 2, '1']
 
         // soal 5
         const sorted = unique.sort((a, b) => a - b);
-        console.log(sorted);
+        console.log("soal 5",sorted);
 
         // soal 6
 
@@ -120,7 +128,35 @@
         ];
 
         // contoh apabila kursi "5i" yang ter-booking
-        console.log(changeBookedChair(map,"5i"));
+        console.log("soal 6",
+            changeBookedChair(map,"5i")
+        );
+
+        // soal 7
+        function uangPecahan(e) {
+            uang = e.target.value;
+            dataa = uang % 100000;
+            a = (uang - dataa) / 100000;
+        
+            datab = dataa % 50000;
+            b = (dataa - datab) / 50000;
+        
+            datac = datab % 20000;
+            c = (datab - datac) / 20000;
+        
+            datad = datac % 5000;
+            d = (datac - datad) / 5000;
+        
+            datae = datad % 100;
+            e = (datad- datae) / 100;
+        
+            dataf = datae % 50;
+            f = (datae - dataf) / 50;
+        
+            result = "<br>Jumlah Rp.100.000 : "+a+"<br>Jumlah Rp.50.000 : "+b+"<br>Jumlah Rp.20.000 : "+c+"<br>Jumlah Rp.5.000 : "+d+"<br>Jumlah Rp.100 : "+e+"<br>Jumlah Rp.50 : "+f+"<br>";
+
+            document.getElementById("uangPecahanResult").innerHTML = result;
+        }
 
     </script>
 </body>
