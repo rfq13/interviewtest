@@ -1,0 +1,15 @@
+case 9 -> SELECT * from user,provile,jabatan
+case 10 -> 
+//membuat table untuk menampilkan masa (dalam tahun) setiap jabatan dari user
+CREATE TABLE jabatan_user (
+    id int,
+    user_id int,
+    jabatan_id int,
+    masa int,
+);
+
+INSERT INTO jabatan_user 
+VALUES (1, 1, 1, 5);
+
+//menampilkan jabatan user berdasarkan id dari user
+SELECT * from jabatan_user where user_id=1
