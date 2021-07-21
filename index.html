@@ -11,27 +11,116 @@
     <input type="text" onkeyup="changeVowel(event)">
     <span id="result"></span>
 
-    <script>
-        function changeVowel(e) {
-            result = withoutVowels(e.target.value,'i');
-            
-            document.getElementById('result').innerHTML = result;
-        }
+    <br>
+    <br>
 
+    soal 3 <br>
+    <input type="text" onkeyup="checkPalindrome(event)">
+    <span id="palindromeresult"></span>
+
+    <script>
+        // soal 1
         function withoutVowels(string,replace) {
             var withoutVowels = "";
             if (string == 'jika input yang dimasukkan') {
                 for (var i = 0; i < string.length; i++) {
-                    appendChar = !isVowel(string[i]) ? string[i] : replace;
+                    appendChar = !'aeiou'.includes(string[i]) ? string[i] : replace;
                     withoutVowels += appendChar;
                 }
             }
-            return withoutVowels;
+            
+            document.getElementById('result').innerHTML = result;
         }
 
-        function isVowel(char) {
-            return 'aeiou'.includes(char);
+        function changeVowel(e) {
+            result = withoutVowels(e.target.value,'i');
+            return withoutVowels;
         }
+        
+        // soal 2
+        console.log(nilai());
+        function nilai() {
+            ani = {
+                sejarah:8,
+                matematika:7,
+                sosiologi: 6,
+                kewarganegaran:9
+            };
+            
+            budi = {
+                sejarah:5,
+                matematika:8,
+                sosiologi: 9,
+                kewarganegaran:6
+            };
+
+            hasil = valueComparison(ani,budi);
+            ani = hasil[0] > hasil[1] ? 1 : 2;
+            budi = hasil[0] < hasil[1] ? 1 : 2;  
+
+            return {ani,budi};  
+
+        }
+
+        function valueComparison(a,b){
+            const mean = (numbers)=> {
+                // console.log(numbers);
+                var total = 0, i;
+                for (i = 0; i < numbers.length; i += 1) {
+                    total += numbers[i];
+                }
+                return total / numbers.length;
+            }
+
+            aValue = mean(Object.values(a));
+            bValue = mean(Object.values(b));
+            return [aValue,bValue];
+        }
+
+        // soal 3
+        function checkPalindrome(e) {
+            str = e.target.value;
+
+            result = str == str.split('').reverse().join('') ? "benar" : "salah";
+            document.getElementById('palindromeresult').innerHTML = result;
+        }
+
+        // soal 4
+        var a = [4, 5, 8, 9, 0, 2, 8, 2, 11, 15, 2, 9, 0];
+        var unique = a.filter((value, index, self)=> self.indexOf(value) === index);
+        console.log(unique); // ['a', 1, 2, '1']
+
+        // soal 5
+        const sorted = unique.sort((a, b) => a - b);
+        console.log(sorted);
+
+        // soal 6
+
+        const changeBookedChair = (arrayData,chair) =>{
+            arrayData.forEach((el,i) => {
+                findedKey = el.findIndex(x => x === chair.toUpperCase());
+                if (findedKey !== -1) {
+                    arrayData[i][findedKey] += "-booked";
+                }
+            });
+            return arrayData;
+        }
+
+        const map = [
+            ["1A","2A","3A","4A","5A","6A","7A","8A","9A","10A"],
+            ["1B","2B","3B","4B","5B","6B","7B","8B","9B","10B"],
+            ["1C","2C","3C","4C","5C","6C","7C","8C","9C","10C"],
+            ["1D","2D","3D","4D","5D","6D","7D","8D","9D","10D"],
+            ["1E","2E","3E","4E","5E","6E","7E","8E","9E","10E"],
+            ["1F","2F","3F","4F","5F","6F","7F","8F","9F","10F"],
+            ["1G","2G","3G","4G","5G","6G","7G","8G","9G","10G"],
+            ["1H","2H","3H","4H","5H","6H","7H","8H","9H","10H"],
+            ["1I","2I","3I","4I","5I","6I","7I","8I","9I","10I"],
+            ["1J","2J","3J","4J","5J","6J","7J","8J","9J","10J"],
+        ];
+
+        console.log(changeBookedChair(map,"5i"));
+
     </script>
 </body>
 </html>
