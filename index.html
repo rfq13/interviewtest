@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Test</title>
+</head>
+<body>
+    soal 1 <br>
+    <input type="text" onkeyup="changeVowel(event)">
+    <span id="result"></span>
+
+    <script>
+        function changeVowel(e) {
+            result = withoutVowels(e.target.value,'i');
+            document.getElementById('result').innerHTML = result;
+        }
+
+        function withoutVowels(string,replace) {
+            var withoutVowels = "";
+            if (string == 'jika input yang dimasukkan') {
+                for (var i = 0; i < string.length; i++) {
+                    appendChar = !isVowel(string[i]) ? string[i] : replace;
+                    withoutVowels += appendChar;
+                }
+            }
+            return withoutVowels;
+        }
+
+        function isVowel(char) {
+            return 'aeiou'.includes(char);
+        }
+    </script>
+</body>
+</html>
